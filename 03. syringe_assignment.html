@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 針筒矩形 */
+        #body {
+            width: 600px;
+            height: 150px;
+            border: 1.5px solid #ccc;
+            /* 透明/ 淡黃、刻度 */
+            background: linear-gradient(to right, transparent 50%, rgba(255, 255, 102, 0.5) 50%), repeating-linear-gradient(90deg, transparent, transparent 3%, #000 3.4%);
+            position: relative;
+            z-index: -1;
+        }
+
+        /* 黑色矩形 */
+        #body::before {
+            content: "";
+            width: 60px;
+            height: 150px;
+            background: black;
+            position: absolute;
+            top: 0%;
+            left: calc(50% - 30px);
+            z-index: 500;
+        }
+
+        /* 接針屁股的矩形 */
+        #butt {
+            width: 75px;
+            height: 100px;
+            border-top: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            border-left: 2px solid #ccc;
+            position: relative;
+            background-image: linear-gradient(#fff 10%, #ccc 50%, #fff 90%);
+        }
+
+        /* 接針頭的矩形 */
+        #butt::before {
+            content: "";
+            width: 75px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            top: 0%;
+            left: 900%;
+            background-image: linear-gradient(#fff 10%, #ccc 50%, #fff 90%);
+        }
+
+        /* 針屁股 */
+        #butt::after {
+            content: "";
+            width: 60px;
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            position: absolute;
+            top: -25%;
+            right: 100%;
+            background-image: linear-gradient(#fff 10%, #ccc 50%, #fff 90%);
+        }
+
+        /* 針頭 */
+        #head {
+            width: 100px;
+            border-bottom: 2px solid #999;
+            position: relative;
+            left: 9.5%;
+            z-index: -1;
+        }
+
+        /* 白灰白漸層 + 文字 left */
+        #head::before {
+            content: "Made in Taiwan";
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+            color: #ccc;
+            line-height: 230px;
+            width: 270px;
+            height: 130px;
+            background: linear-gradient(to top, #fff 10%, #ccc 55%, #fff 95%);
+            position: absolute;
+            bottom: -77px;
+            right: 506px;
+            z-index: 1;
+        }
+
+        /* 白灰白漸層 right */
+        #head::after {
+            content: "";
+            width: 270px;
+            height: 130px;
+            position: absolute;
+            bottom: -77px;
+            right: 175px;
+            background: linear-gradient(to top, transparent 10%, rgba(148, 148, 148, 0.4) 55%, transparent 90%), rgb(253, 253, 188);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="butt"></div>
+    <div id="body"></div>
+    <div id="head"></div>
+</body>
+
+</html>
